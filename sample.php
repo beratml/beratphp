@@ -19,8 +19,11 @@ if (isset($_GET['id'])) {
                         <img src="<?php echo substr($satir_blog['foto'], 3); ?>" class="w-100">
                         <small>
                             <?php
-                            echo 'Kategori: ' . $satir_blog['kategori'] . ' / ' . 'Yayınlanma Tarihi: ' . $satir_blog['tarih'];
+                            echo 'Kategori: ' . '<a href="kategori.php?katadi='.$satir_blog['kategori'].'">'.$satir_blog['kategori'].'</a>' . ' / ' . 'Yayınlanma Tarihi: ' . $satir_blog['tarih'];
+
                             ?>
+
+                            
                         </small>
                         <h1 class="mt-4 text-danger"><?php echo $satir_blog['baslik']; ?></h1>
                         <span class="text-justify">

@@ -2,6 +2,25 @@
     <aside>
         <div class="row">
             <div class="col-12">
+                <?php
+                $sorgu_reklam = $db -> prepare('select * from reklam limit 1');
+                $sorgu_reklam -> execute();
+                
+                if($sorgu_reklam -> rowCount()){
+                    foreach($sorgu_reklam as $satir_reklam){
+                        $gorsel = $satir_reklam['gorsel'];
+                        $link = $satir_reklam['link'];
+                        $firma = $satir_reklam['firma'];
+                    }
+
+                    
+                }
+                ?>
+                <a href="#"><img src="<?php echo substr($gorsel,3);?>" alt="" tittle="<?php echo $firma;?>" class="img-fluid"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <h5>Bizi Takip Edin</h5>
                 <a href="<?php echo $satir['facebook']; ?>" target="_blank"><i class="bi bi-facebook" style="font-size:30px;"></i></a>
                 <a href="<?php echo $satir['instagram']; ?>" target="_blank"><i class="bi bi-instagram" style="font-size:30px;"></i></a>
@@ -41,7 +60,7 @@
                         foreach($sorgu_kategori as $satir_kategori){
                             ?>
                                 <small>
-                                <a href="kategori.php?id=<?php echo $satir_kategori['id']; ?>"><?php echo $satir_kategori['katadi']; ?></a><br>
+                                <a href="kategori.php?id=?katadi<?php echo $satir_kategori['katadi']; ?>"><?php echo $satir_kategori['katadi']; ?></a><br>
                                 </small>
                             <?php
                         }
